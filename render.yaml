@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: doc-gen-backend
+    env: node
+    plan: free
+    branch: main
+    buildCommand: "cd server && npm install"
+    startCommand: "cd server && npm start"
+  - type: web
+    name: doc-gen-frontend
+    env: static
+    plan: free
+    branch: main
+    buildCommand: "cd client && npm install && npm run build"
+    staticPublishPath: "client/build"
